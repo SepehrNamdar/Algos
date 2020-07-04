@@ -11,6 +11,12 @@ public class Tail {
     }
 
     public List<String> get(List<String> givenLines) {
-        return new ArrayList<>();
+        List<String> tail = new ArrayList<>();
+        if (lineNumbers == 0) {
+            return new ArrayList<>();
+        } else {
+            tail.add(givenLines.get(2));
+        }
+        return tail;
     }
 }
