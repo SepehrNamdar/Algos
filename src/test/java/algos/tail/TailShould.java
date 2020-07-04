@@ -1,13 +1,12 @@
 package algos.tail;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TailShould {
@@ -26,26 +25,20 @@ public class TailShould {
     void return_nothing_for_0_line_numbers() {
         Tail tail = new Tail(0);
 
-        List<String> tailRes = tail.get(givenLines);
-
-        assertThat(tailRes).isEmpty();
+        assertThat(tail.get(givenLines)).isEmpty();
     }
 
     @Test
     void return_last_line_for_1_line_numbers() {
         Tail tail = new Tail(1);
 
-        List<String> tailRes = tail.get(givenLines);
-
-        assertThat(tailRes).isEqualTo(Arrays.asList(givenLines.get(2)));
+        assertThat(tail.get(givenLines)).isEqualTo(asList(givenLines.get(2)));
     }
 
     @Test
     void return_2_last_line_for_2_line_numbers() {
         Tail tail = new Tail(2);
 
-        List<String> tailRes = tail.get(givenLines);
-
-        assertThat(tailRes).isEqualTo(Arrays.asList(givenLines.get(1), givenLines.get(2)));
+        assertThat(tail.get(givenLines)).isEqualTo(asList(givenLines.get(1), givenLines.get(2)));
     }
 }
