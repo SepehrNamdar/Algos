@@ -41,4 +41,11 @@ public class TailShould {
 
         assertThat(tail.get(givenLines)).isEqualTo(asList(givenLines.get(1), givenLines.get(2)));
     }
+
+    @Test
+    void return_3_last_line_for_3_line_numbers() {
+        Tail tail = new Tail(3);
+
+        assertThat(tail.get(givenLines)).isEqualTo(asList(givenLines.get(0), givenLines.get(1), givenLines.get(2)));
+    }
 }

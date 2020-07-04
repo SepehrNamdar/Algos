@@ -19,6 +19,10 @@ public class Tail {
         } else if (lineNumbers == 2) {
             tail.add(givenLines.get(1));
             tail.add(givenLines.get(2));
+        } else if (lineNumbers == 3) {
+            tail.add(givenLines.get(0));
+            tail.add(givenLines.get(1));
+            tail.add(givenLines.get(2));
         }
         return tail;
     }
