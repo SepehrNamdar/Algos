@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TailShould {
@@ -22,30 +23,14 @@ public class TailShould {
     }
 
     @Test
-    void return_nothing_for_0_line_numbers() {
-        Tail tail = new Tail(0);
-
-        assertThat(tail.get(givenLines)).isEmpty();
-    }
-
-    @Test
-    void return_last_line_for_1_line_numbers() {
-        Tail tail = new Tail(1);
-
-        assertThat(tail.get(givenLines)).isEqualTo(asList(givenLines.get(2)));
-    }
-
-    @Test
-    void return_2_last_line_for_2_line_numbers() {
-        Tail tail = new Tail(2);
-
-        assertThat(tail.get(givenLines)).isEqualTo(asList(givenLines.get(1), givenLines.get(2)));
-    }
-
-    @Test
-    void return_3_last_line_for_3_line_numbers() {
-        Tail tail = new Tail(3);
-
-        assertThat(tail.get(givenLines)).isEqualTo(asList(givenLines.get(0), givenLines.get(1), givenLines.get(2)));
+    void return_given_last_lines() {
+        assertThat(new Tail(0).get(givenLines))
+                .isEmpty();
+        assertThat(new Tail(1).get(givenLines))
+                .isEqualTo(singletonList(givenLines.get(2)));
+        assertThat(new Tail(2).get(givenLines))
+                .isEqualTo(asList(givenLines.get(1), givenLines.get(2)));
+        assertThat(new Tail(3).get(givenLines))
+                .isEqualTo(asList(givenLines.get(0), givenLines.get(1), givenLines.get(2)));
     }
 }
