@@ -17,6 +17,9 @@ public class TailShould {
     @BeforeEach
     public void init() {
         givenLines = new ArrayList<>();
+        givenLines.add("line 1");
+        givenLines.add("line 2");
+        givenLines.add("line 3");
     }
 
     @Test
@@ -31,9 +34,6 @@ public class TailShould {
     @Test
     void return_last_line_for_1_line_numbers() {
         Tail tail = new Tail(1);
-        givenLines.add("line 1");
-        givenLines.add("line 2");
-        givenLines.add("line 3");
 
         List<String> tailRes = tail.get(givenLines);
 
@@ -43,9 +43,6 @@ public class TailShould {
     @Test
     void return_2_last_line_for_2_line_numbers() {
         Tail tail = new Tail(2);
-        givenLines.add("line 1");
-        givenLines.add("line 2");
-        givenLines.add("line 3");
 
         List<String> tailRes = tail.get(givenLines);
 
