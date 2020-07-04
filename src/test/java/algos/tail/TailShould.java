@@ -39,4 +39,16 @@ public class TailShould {
 
         assertThat(tailRes).isEqualTo(Arrays.asList(givenLines.get(2)));
     }
+
+    @Test
+    void return_2_last_line_for_2_line_numbers() {
+        Tail tail = new Tail(2);
+        givenLines.add("line 1");
+        givenLines.add("line 2");
+        givenLines.add("line 3");
+
+        List<String> tailRes = tail.get(givenLines);
+
+        assertThat(tailRes).isEqualTo(Arrays.asList(givenLines.get(1), givenLines.get(2)));
+    }
 }

@@ -14,7 +14,10 @@ public class Tail {
         List<String> tail = new ArrayList<>();
         if (lineNumbers == 0) {
             return new ArrayList<>();
-        } else {
+        } else if (lineNumbers == 1) {
+            tail.add(givenLines.get(2));
+        } else if (lineNumbers == 2) {
+            tail.add(givenLines.get(1));
             tail.add(givenLines.get(2));
         }
         return tail;
