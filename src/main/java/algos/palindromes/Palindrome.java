@@ -7,8 +7,8 @@ public class Palindrome {
         this.givenString = givenString;
     }
 
-    public boolean isPalindrome() {
-        return reverse(givenString).equals(givenString);
+    public String getPalindrome() {
+        return reverse(givenString);
     }
 
     private String reverse(String aString) {

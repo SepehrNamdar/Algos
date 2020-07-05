@@ -8,9 +8,9 @@ public class PalindromeShould {
 
     @Test
     void inverse_letters() {
-        assertThat(new Palindrome("").isPalindrome()).isTrue();
-        assertThat(new Palindrome("a").isPalindrome()).isTrue();
-        assertThat(new Palindrome("ab").isPalindrome()).isFalse();
-        assertThat(new Palindrome("aba").isPalindrome()).isTrue();
+        assertThat(new Palindrome("").getPalindrome()).isEqualTo("");
+        assertThat(new Palindrome("a").getPalindrome()).isEqualTo("a");
+        assertThat(new Palindrome("ab").getPalindrome()).isEqualTo("ba");
+        assertThat(new Palindrome("aba").getPalindrome()).isEqualTo("aba");
     }
 }
