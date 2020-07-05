@@ -1,14 +1,19 @@
 package algos.palindromes;
 
-public class Palindrome {
-    private final String givenString;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Palindrome(final String givenString) {
-        this.givenString = givenString;
+public class Palindrome {
+    private final List<String> givenStrings;
+
+    public Palindrome(final List<String> givenStrings) {
+        this.givenStrings = givenStrings;
     }
 
-    public String getPalindrome() {
-        return reverse(givenString);
+    public List<String> getPalindrome() {
+        List<String> results = new ArrayList<>();
+        givenStrings.forEach(s -> results.add(reverse(s)));
+        return results;
     }
 
     private String reverse(String aString) {
