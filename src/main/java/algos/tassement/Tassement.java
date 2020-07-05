@@ -8,16 +8,15 @@ public class Tassement {
     }
 
     public String putPointsToTheEnd() {
-        String[] letters = aString.split("");
-        for (int index = 0; index < letters.length; index++) {
-            String letter = letters[index];
-            if (letter.equals(".") && index != letters.length - 1) {
-                for (int cloneIndex = index; cloneIndex < letters.length - 1; cloneIndex++) {
-                    letters[cloneIndex] = letters[cloneIndex + 1];
-                }
-                letters[letters.length - 1] = letter;
-            }
+        long numberOfPoints = aString.chars().filter(ch -> ch == '.').count();
+        return aString.replaceAll("\\.", "") + addPointsToTheEnd(numberOfPoints);
+    }
+
+    private StringBuilder addPointsToTheEnd(long numberOfPoints) {
+        StringBuilder result = new StringBuilder();
+        for (int index = 0; index < numberOfPoints; index++) {
+            result.append(".");
         }
-        return String.join("", letters);
+        return result;
     }
 }
