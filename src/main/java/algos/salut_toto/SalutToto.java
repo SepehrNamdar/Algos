@@ -3,23 +3,31 @@ package algos.salut_toto;
 import java.util.List;
 import java.util.concurrent.*;
 
+import static algos.salut_toto.Consts.*;
 import static java.util.Arrays.asList;
 import static java.util.concurrent.Executors.newFixedThreadPool;
 
 public class SalutToto {
 
-    private static final String SALUT = "Salut";
-    private static final String TOTO = "Toto";
-
-    public String tell(int times) throws InterruptedException, ExecutionException {
-        StringBuilder salutToto = new StringBuilder();
+    public String tell(int times) {
+        StringBuilder result = new StringBuilder();
         for (int index = 0; index < times; index++) {
-            for (Future<String> future : getThreads()) {
-                salutToto.append(future.get());
-                salutToto.append(" ");
+            try {
+                result.append(salutToto());
+            } catch (InterruptedException | ExecutionException e) {
+                throw new ThreadExecutionOcuredProblemException();
             }
         }
-        return salutToto.toString().trim();
+        return result.toString().trim();
+    }
+
+    private String salutToto() throws InterruptedException, ExecutionException {
+        StringBuilder salutToto = new StringBuilder();
+        for (Future<String> thread : getThreads()) {
+            salutToto.append(thread.get());
+            salutToto.append(ESPACE);
+        }
+        return salutToto.toString();
     }
 
     private List<Future<String>> getThreads() throws InterruptedException {
