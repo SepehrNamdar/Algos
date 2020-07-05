@@ -11,11 +11,13 @@ public class SalutToto {
     private static final String SALUT = "Salut";
     private static final String TOTO = "Toto";
 
-    public String tell() throws InterruptedException, ExecutionException {
+    public String tell(int times) throws InterruptedException, ExecutionException {
         StringBuilder salutToto = new StringBuilder();
-        for (Future<String> future : getThreads()) {
-            salutToto.append(future.get());
-            salutToto.append(" ");
+        for (int index = 0; index < times; index++) {
+            for (Future<String> future : getThreads()) {
+                salutToto.append(future.get());
+                salutToto.append(" ");
+            }
         }
         return salutToto.toString().trim();
     }
