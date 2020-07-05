@@ -9,15 +9,15 @@ public class Tassement {
 
     public String putPointsToTheEnd() {
         String[] letters = aString.split("");
-        String[] clone = letters.clone();
         for (int index = 0; index < letters.length; index++) {
             String letter = letters[index];
-            if (letter.equals(".")) {
-                String lastChar = clone[clone.length - 1];
-                clone[index] = lastChar;
-                clone[clone.length - 1] = letter;
+            if (letter.equals(".") && index != letters.length - 1) {
+                for (int cloneIndex = index; cloneIndex < letters.length - 1; cloneIndex++) {
+                    letters[cloneIndex] = letters[cloneIndex + 1];
+                }
+                letters[letters.length - 1] = letter;
             }
         }
-        return String.join("", clone);
+        return String.join("", letters);
     }
 }

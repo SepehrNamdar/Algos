@@ -14,5 +14,6 @@ public class TassementShould {
         assertThat(new Tassement("a.").putPointsToTheEnd()).isEqualTo("a.");
         assertThat(new Tassement(".a").putPointsToTheEnd()).isEqualTo("a.");
         assertThat(new Tassement("b.a").putPointsToTheEnd()).isEqualTo("ba.");
+        assertThat(new Tassement(".b.a").putPointsToTheEnd()).isEqualTo("ba..");
     }
 }
