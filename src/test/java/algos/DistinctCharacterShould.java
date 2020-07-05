@@ -13,5 +13,7 @@ public class DistinctCharacterShould {
         assertThat(new DistinctCharacter("").getCharacters()).isEqualTo("");
         assertThat(new DistinctCharacter("a").getCharacters()).isEqualTo("a");
         assertThat(new DistinctCharacter("aba").getCharacters()).isEqualTo("ab");
+        assertThat(new DistinctCharacter("abcdemoderneancien").getCharacters())
+                .isEqualTo("abcdemo");
     }
 }

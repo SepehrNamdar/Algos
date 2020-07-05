@@ -13,6 +13,8 @@ public class DistinctCharacter {
         for (String character : splicedString) {
             if (!result.toString().contains(character)) {
                 result.append(character);
+            } else {
+                return result.toString();
             }
         }
         return result.toString();
