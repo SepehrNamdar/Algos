@@ -1,6 +1,5 @@
-package algos;
+package algos.common;
 
-import algos.common.Common;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -20,5 +19,7 @@ public class CommonShould {
                 .isEqualTo(new ArrayList<>());
         assertThat(new Common(asList('a'), asList('a')).getCommonCharacters())
                 .isEqualTo(asList('a'));
+        assertThat(new Common(asList('a', 'e', 'e', 'e'), asList('b', 'b', 'c', 'e', 'e', 'g')).getCommonCharacters())
+                .isEqualTo(asList('e', 'e'));
     }
 }

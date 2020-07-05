@@ -1,6 +1,7 @@
 package algos.common;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Common {
@@ -9,16 +10,19 @@ public class Common {
 
     public Common(final List<Character> leftList, final List<Character> rightList) {
         this.leftList = leftList;
-        this.rightList = rightList;
+        this.rightList = new LinkedList<>(rightList);
     }
 
     public List<Character> getCommonCharacters() {
-        List<Character> characters = new ArrayList<>();
-        leftList.forEach(c -> {
-            if (rightList.contains(c)) {
-                characters.add(c);
-            }
-        });
+        final List<Character> characters = new ArrayList<>();
+        leftList.forEach(c -> addCharacterToListIfInCommon(c, characters));
         return characters;
+    }
+
+    private void addCharacterToListIfInCommon(final Character c, final List<Character> characters) {
+        if (rightList.contains(c)) {
+            characters.add(c);
+            rightList.remove(c);
+        }
     }
 }
