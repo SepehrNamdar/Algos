@@ -8,6 +8,13 @@ public class DistinctCharacter {
     }
 
     public String getCharacters() {
-        return aString;
+        StringBuilder result = new StringBuilder();
+        String[] splicedString = aString.split("");
+        for (String character : splicedString) {
+            if (!result.toString().contains(character)) {
+                result.append(character);
+            }
+        }
+        return result.toString();
     }
 }

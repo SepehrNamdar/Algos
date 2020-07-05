@@ -12,5 +12,6 @@ public class DistinctCharacterShould {
     void get_a_non_redundant_string() {
         assertThat(new DistinctCharacter("").getCharacters()).isEqualTo("");
         assertThat(new DistinctCharacter("a").getCharacters()).isEqualTo("a");
+        assertThat(new DistinctCharacter("aba").getCharacters()).isEqualTo("ab");
     }
 }
